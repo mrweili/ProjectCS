@@ -1,0 +1,56 @@
+<div ng-controller="suggestionController">
+  <div class="row">
+<!--     <div class="alert alert-success" role="alert" ng-show="added">
+      <p>{{addedCourse}} has been added!</p>
+    </div> -->
+    <form class="form" ng-hide="checked">
+      <div style="margin:7px"ng-repeat="question in questions">
+        <label>{{$index + 1}}) {{question}}</label>
+        <div style="margin-left:12px">
+          <input type="radio" ng-model="formData[question]" ng-value="true">
+            Yes
+          </input>
+          <br>
+          <input type="radio" ng-model="formData[question]" ng-value="false">
+            No
+          </input>
+        </div>
+      </div>
+      <br><button ng-click="submit()" type="submit" class="btn btn-primary btn-md" >Submit</button>
+    </form>
+    <div ng-show="checked">
+      <h2>Here are your suggestions...</h2>
+      <div ng-repeat="course in suggestions">  
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3>{{course.courseID}}</h3>
+          </div>
+          <div class="panel-body">
+            <h5>Description:</h5>
+            <p>{{course.description}}</p>
+            <h5>Prerequisites:</h5>
+            <p>
+              <div ng-if="course.prereqs.length > 0">
+                <div ng-repeat="prereq in course.prereqs">
+                  <div ng-if="prereq.taken">
+                    <span style="color:green">{{prereq.courses}}</span>
+                  </div>
+                  <div ng-if="!prereq.taken">
+                      <span style="color:red">{{prereq.courses}}</span>
+                  </div>
+                </div>
+              </div>
+              <div ng-if="course.prereqs.length === 0">
+                None
+              </div>
+            </div>
+            </p>
+          </div>
+        </div>
+      </div>
+      <button style="margin-top:7px" ng-click="loadQuestions()" class="btn btn-primary btn-md">Ask Again</button>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,67 @@
+.test{
+    background: #dbdfe5;
+}
+.row{
+    margin-top: 60px;
+}
+.fixed {
+	float: right;
+}
+.table {
+    font-weight: 20px;
+    font-size: 20px;
+}
+
+body { 
+  font: 14px helvetica neue, helvetica, arial, sans-serif;
+}
+
+#logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url('https://raw.githubusercontent.com/angular/angular.js/master/images/logo/AngularJS-Shield.exports/AngularJS-Shield-medium.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 33%;
+  height: 33%;
+  z-index: -1;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#divg1 {
+    height: 500px;
+}
+
+#graph1 {
+  width: 600px;
+  height: 450px;
+  border: 1px solid lightgray;
+
+}
+
+#divg2 {
+    height: 500px;
+}
+
+#graph2 {
+  width: 600px;
+  height: 450px;
+  border: 1px solid lightgray;
+
+}
+
+
+#people-table {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255, 200, 200, 0.5);
+}
+
+th {
+  text-align: left;
+}

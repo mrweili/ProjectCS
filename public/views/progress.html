@@ -1,0 +1,188 @@
+<div class="content">
+  <div class = "container" ng-controller="progressController">
+    <div class = "row">
+      <div class = "col-md-2">
+        <div class = "tab">
+          <!-- set up tabs-->
+          <ul class = "nav nav-tabs">
+            <li ng-class = "{active: tab===1}"><a href = "" ng-click="tab = 1">Overall Progress</a></li>
+         </ul>
+         <ul class = "nav nav-tabs ">
+           <li ng-class = "{active: tab===2}"><a href = "" ng-click="tab = 2">Major Progress</a></li>
+         </ul>
+         <ul class = "nav nav-tabs">
+           <li ng-class = "{active: tab===3}"><a href = "" ng-click= "tab = 3">Focus Progress</a></li>
+         </ul>
+        </div>
+        <div class = "majorLegend" ng-show = "tab === 2">
+          <table id = "legend">
+            <tr><td style = "color : Grey"><h4><strike>Grey = Excluded</strike></h4></td></tr>
+            <tr><td style = "color : Red"><h4>Red = Incomplete</h4></td></tr>
+            <tr><td style = "color : Green"><h4>Green = Completed</h4></td></tr>
+          </table>
+        </div>
+        <div class = "focusLegend" ng-show = "tab === 3">
+          <table id = "legend">
+            <tr><td style = "color : Grey"><h4><strike>Grey = Excluded</strike></h4></td></tr>
+            <tr><td style = "color : Red"><h4>Red = Incomplete</h4></td></tr>
+            <tr><td style = "color : Green"><h4>Green = Completed</h4></td></tr>
+          </table>
+        </div>
+       <div id = "mainView">
+           <div ng-include="currentTab"></div>
+       </div>
+     </div>
+
+     <div class = "col-md-10">
+      <div class = "mainContent" >
+        <!-- General progress info -->
+        <div class = "progressInfo" ng-show = "tab === 1">
+
+          <!-- Table to display remaining credits -->
+          <table id = "remainingCredits">
+            <tr>
+              <td><h2>Degree Progress:</h2></td>
+            </tr>
+            <tr>
+              <td ng-style = "creditStyle"><h3> Overall Status: {{statusTotal}}</h3></td>
+            </tr>
+            <tr>
+              <td><h4>Total credits required: 20</h4></td>
+            </tr>
+            <tr>
+              <td><h4>Credits Obtained: {{obtainTotal}}</h4></td>
+            </tr>
+            <tr>
+              <td><h4>Credits Left: {{leftTotal}}</h4></td>
+            </tr>
+            <tr>
+              <td ng-style = "majorStyle"><h3> Major Status: {{statusMajor}}</h3></td>
+            </tr>
+            <tr>
+              <td><h4>Total credits required: 8</h4></td>
+            </tr>
+            <tr>
+              <td><h4>Credits Obtained: {{obtainMajor}}</h4></td>
+            </tr>
+            <tr>
+              <td><h4>Credits Left: {{leftMajor}}</h4></td>
+            </tr>
+          </table>
+          
+        </div>
+<!-- <div id = "chartContainer" style="height: 430px; width: 55%;"> -->
+<!-- </div> -->
+      <div class = "MajorInfo" ng-show = "tab === 2">
+        <table id = "firstYearRequirement">
+           <h3>First Year 2.5 FCES</h3>
+           <tbody>
+           <tr>
+             <td  ng-repeat = "course in firstyear|limitTo:4" style = "padding: 5px" ng-style="set_color(course)">
+                <h4><span>{{course.name}}</span></h4>
+             </td>
+            </tr>
+            <tr>
+              <td  ng-repeat = "course in firstyear|limitTo:4:4" style = "padding: 5px" ng-style="set_color(course)">
+                <h4><span>{{course.name}}</span></h4>
+             </td>
+            </tr>
+           </tbody>
+        </table>
+        <table id = "secondYearRequirement">
+           <h3>Second Year 2.5 FCES</h3>
+           <tbody>
+           <tr>
+             <td ng-repeat = "course in secondyear|limitTo:6" style = "padding: 5px" ng-style="set_color(course)">
+                <h4><span>{{course.name}}</span></h4>
+             </td>
+           </tr>
+           <tr>
+             <td ng-repeat = "course in secondyear|limitTo:3:6" style = "padding: 5px" ng-style="set_color(course)">
+                <h4><span>{{course.name}}</span></h4>
+             </td>
+           </tr>
+           </tbody>
+        </table>
+        <h3>Later Year - Any of the following 3.0 FCES</h3>
+        <table id = "laterYearRequirementCSTitle">
+          <tbody>
+            <tr>
+              <td style = "padding: 10px"><h4><u>{{laterCSC.name}}</u></h4></td>
+            </tr>
+          </tbody>
+        </table>
+      <table id = "laterYearRequirementCS">
+        <tbody>
+         <tr>
+          <td ng-repeat = "laterCSC in laterCSCourses|limitTo:6" style = "padding: 5px" ng-style="set_laterCS_color()">
+              <h4><span>{{laterCSC.name}}</span></h4>
+          </td>
+        </tr>
+        <tr>
+          <td ng-repeat = "laterCSC in laterCSCourses|limitTo:6:6" style = "padding: 5px" ng-style="set_laterCS_color()">
+              <h4><span>{{laterCSC.name}}</span></h4>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table id = "laterYearRequirementMATTile">
+     <tr>
+      <td style = "padding: 10px"><h4><u>{{laterMAT.name}}</u></h4></td>
+    </tr>
+  </table>
+  <table id = "laterYearRequirementOther">
+    <tbody>
+     <tr>
+      <td ng-repeat = "course in lateryear" style = "padding: 10px" ng-style="set_color(course)"><h4><span>{{course.name}}</span></h4></td>
+    </tr>
+    <tr>
+      <td ng-repeat = "matcourse in lateryearMAT" style = "padding: 10px" ng-style="set_color(matcourse)"><h4><span>{{matcourse.name}}</span></h4></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class = "FocusInfo" ng-show = "tab === 3">
+      <h2>Focus in Computer Systems</h2>
+        <table id = "SecondYearRequirement">
+          <h3>Second Year - In addition of Major Requirements</h3>
+          <tbody>
+            <tr>
+             <td ng-repeat = "course in secondyearFocus|limitTo:1" style = "padding: 5px" ng-style="set_color(course)">
+                <h4><span>{{course.name}}</span></h4>
+             </td>
+            </tr>
+            <tr>
+             <td ng-repeat = "course in secondyearFocus|limitTo:3:1" style = "padding: 5px" ng-style="set_color(course)">
+                <h4><span>{{course.name}}</span></h4>
+             </td>
+            </tr>
+          </tbody>
+        </table>
+        <table id = "LaterYearFocusRequirement">
+          <h3>Later Year Requirements 3.5 FCEs</h3>
+          <tbody>
+            <tr>
+              <td ng-repeat = "course in lateryearFocus|limitTo:4" style = "padding: 5px" ng-style="set_color(course)">
+                <h4><span>{{course.name}}</span></h4>
+             </td>
+            </tr>
+            <tr>
+              <td ng-repeat = "course in lateryearFocus|limitTo:3:4" style = "padding: 5px" ng-style="set_color(course)">
+                <h4><span>{{course.name}}</span></h4>
+             </td>
+            </tr>
+            <tr><td><h4><u>1.0 FCE from:</u><h4></td></tr>
+            <tr>
+              <td ng-repeat = "course in lateryearFocus2" style = "padding: 5px" ng-style="set_color(course)">
+                <h4><span>{{course.name}}</span></h4>
+             </td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</div>
+</div>   
+</div>
+</div>
+</div>
+

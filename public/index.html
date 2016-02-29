@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="projectcs">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PROJECT CS</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
+    <script src="/javascripts/angular/app.js"></script>
+    <script src="/routes.js"></script>
+    <script src="/javascripts/angular-ui-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+    <script src="/javascripts/angular/mainController.js"></script>
+    <script src="/javascripts/angular/suggestionController.js"></script>
+    <script src="/javascripts/angular/progressController.js"></script>
+    <script src="/javascripts/angular/services.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts Icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="/stylesheets/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+   
+    <div class="container">
+        <a href="/old-index.html">
+            <i class="fa fa-cogs fixed fa-4x"></i>
+        </a>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <a href="#mycourses" role="button" class="btn btn-primary btn-block" >
+                    <i class="fa fa-th-list"></i>
+                    My Courses
+                </a>
+            </div>
+            <div class="col-md-4 text-center">
+                <a href="#suggest" role="button" class="btn btn-primary btn-block" >
+                    <i class="fa fa-pencil-square-o"></i>
+                    Suggest a Course
+                </a>
+            </div>
+            <div class="col-md-4 text-center">
+                <a href="#progress" role="button" class="btn btn-primary btn-block">
+                    <i class="fa fa-bar-chart"></i>
+                    My Progress
+                </a>
+            </div> 
+        </div>
+
+        <div id="main" ng-controller="mainController">
+            <div ng-view> </div>
+        </div>
+    </div>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.3.0/vis.js"></script>
+
+
+
+</body>
+
+</html>

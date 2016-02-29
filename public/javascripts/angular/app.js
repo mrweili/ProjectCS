@@ -1,0 +1,1 @@
+angular.module('projectcs', ['projectcs.routes', 'ui.bootstrap', 'ngAnimate', 'ngResource']);

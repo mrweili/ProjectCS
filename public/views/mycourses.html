@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-2">
+        <table class="table table-hover">
+            <thead>
+            <tr><th><h4>My Completed Courses</h4></th></tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="course in userCourses" ng-click="myCourseClick(course)">
+                <td>{{course.courseID}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2">
+        <h4>Available Courses</h4>
+        <uib-tabset>
+            <!-- 100 level courses TAB -->
+            <uib-tab heading="100" ng-click="clickTab100()">
+            <table class="table table-hover"><tbody>
+                <tr ng-repeat="course in courses100" ng-click="click100(course)">
+                    <td ng-click="courseClick(course)">{{course.courseID}}</td>
+                </tr>    
+            </tbody></table>
+            </uib-tab>
+
+            <!-- 200 level courses TAB -->
+            <uib-tab heading="200" ng-click="clickTab200()">
+            <table class="table table-hover"><tbody>
+                <tr ng-repeat="course in courses200" ng-click="click200(course)">
+                    <td ng-click="courseClick(course)">{{course.courseID}}</td>
+                </tr>    
+            </tbody></table>
+            </uib-tab>
+
+            <!-- 300 level courses TAB -->
+            <uib-tab heading="300" ng-click="clickTab300()">
+            <table class="table table-hover"><tbody>
+                <tr ng-repeat="course in courses300" ng-click="click300(course)">
+                    <td ng-click="courseClick(course)">{{course.courseID}}</td>
+                </tr>    
+            </tbody></table>
+            </uib-tab>
+
+            <!-- 400 level courses TAB -->
+            <uib-tab heading="400" ng-click="clickTab400()">
+            <table class="table table-hover"><tbody>
+                <tr ng-repeat="course in courses400" ng-click="click400(course)">
+                    <td ng-click="courseClick(course)">{{course.courseID}}</td>
+                </tr>    
+            </tbody></table>
+            </uib-tab>
+        </uib-tabset>        
+    </div>
+
+    <div id="divg1" class="col-md-4">
+        <h3>My Completed Courses</h3>
+        <vis-network id="graph1" ng-model="network_data" options="network_options" on-select="onNodeSelect">
+        </vis-network>
+    </div>
+   <div id="divg2" class="col-md-4">
+        <h3>Available Courses</h3>
+        <vis-network id="graph2" ng-model="network_data2" options="network_options2" on-select="onNodeSelect2" id="previewNetwork2">
+        </vis-network>
+    </div>
+    </div>
+</div>

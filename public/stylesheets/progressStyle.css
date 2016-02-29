@@ -1,0 +1,94 @@
+@CHARSET "UTF-8";
+
+.content{
+   display : inline;
+   padding: 20px 10px;
+   overflow: auto;
+}
+
+.tab{
+  float:left;
+  margin:50px 0 0 0;
+  width:197px;
+}
+
+#tabs{
+  float:left;
+  background-color: rgb(220,220,220);
+}
+#total-progress{
+  color : #483D8B;
+  text-align : center;
+  width : 197px;
+  border: 1px solid black;
+  font-size:15px;
+  padding: 2px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+#major-progress{
+  color : #483D8B;
+  text-align : center;
+  width : 197px;
+  border: 1px solid black;
+  font-size:15px;
+  padding: 2px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+#focus-progress{
+  color : #483D8B;
+  text-align : center;
+  width : 197px;
+  border: 1px solid black;
+  font-size:15px;
+  padding: 2px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.mainContent{
+  border: 2px solid black;
+}
+
+#remainingCredits{
+  border: 1px solid black;
+  text-align:center;
+  width : 270px;
+}
+
+#remainingCredits h3{
+  color : #8B1A1A;
+  font-weight : bold;
+}
+#breadth{
+  border: 1px solid black;
+  text-align:left;
+  width : 270px;
+}
+
+#breadth h4{
+  color : #8B1A1A;
+  font-weight : bold;
+}
+
+#focus{
+  border: 1px solid black;
+  text-align:left;
+  width : 270px;
+}
+
+#focus h4{
+  color : #8B1A1A;
+  font-weight : bold;
+}
+
+
+.progressInfo{
+  padding : 23px;
+  display:inline-block;
+}
+
+#chartContainer {
+  display:inline-block;
+}
